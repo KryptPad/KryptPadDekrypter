@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.SelectFileButton = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.DecryptButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DecryptedContentsTextBox = new System.Windows.Forms.TextBox();
             this.DecryptToFileButton = new System.Windows.Forms.Button();
+            this.PassphraseTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,7 +47,7 @@
             // 
             // SelectFileButton
             // 
-            this.SelectFileButton.Location = new System.Drawing.Point(12, 27);
+            this.SelectFileButton.Location = new System.Drawing.Point(12, 28);
             this.SelectFileButton.Name = "SelectFileButton";
             this.SelectFileButton.Size = new System.Drawing.Size(91, 23);
             this.SelectFileButton.TabIndex = 1;
@@ -55,58 +55,59 @@
             this.SelectFileButton.UseVisualStyleBackColor = true;
             this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(109, 27);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(198, 23);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.UseSystemPasswordChar = true;
-            // 
             // DecryptButton
             // 
             this.DecryptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DecryptButton.Enabled = false;
-            this.DecryptButton.Location = new System.Drawing.Point(313, 27);
+            this.DecryptButton.Location = new System.Drawing.Point(313, 28);
             this.DecryptButton.Name = "DecryptButton";
             this.DecryptButton.Size = new System.Drawing.Size(75, 23);
             this.DecryptButton.TabIndex = 3;
             this.DecryptButton.Text = "Dekrypt";
             this.DecryptButton.UseVisualStyleBackColor = true;
+            this.DecryptButton.Click += new System.EventHandler(this.DecryptButton_Click);
             // 
-            // textBox1
+            // DecryptedContentsTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DecryptedContentsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 56);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(510, 243);
-            this.textBox1.TabIndex = 4;
+            this.DecryptedContentsTextBox.Location = new System.Drawing.Point(12, 57);
+            this.DecryptedContentsTextBox.Multiline = true;
+            this.DecryptedContentsTextBox.Name = "DecryptedContentsTextBox";
+            this.DecryptedContentsTextBox.Size = new System.Drawing.Size(510, 242);
+            this.DecryptedContentsTextBox.TabIndex = 4;
             // 
             // DecryptToFileButton
             // 
             this.DecryptToFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DecryptToFileButton.Enabled = false;
-            this.DecryptToFileButton.Location = new System.Drawing.Point(394, 27);
+            this.DecryptToFileButton.Location = new System.Drawing.Point(394, 28);
             this.DecryptToFileButton.Name = "DecryptToFileButton";
             this.DecryptToFileButton.Size = new System.Drawing.Size(128, 23);
             this.DecryptToFileButton.TabIndex = 5;
             this.DecryptToFileButton.Text = "Dekrypt To File...";
             this.DecryptToFileButton.UseVisualStyleBackColor = true;
             // 
+            // PassphraseTextBox
+            // 
+            this.PassphraseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PassphraseTextBox.Location = new System.Drawing.Point(109, 28);
+            this.PassphraseTextBox.Name = "PassphraseTextBox";
+            this.PassphraseTextBox.Size = new System.Drawing.Size(198, 23);
+            this.PassphraseTextBox.TabIndex = 6;
+            this.PassphraseTextBox.UseSystemPasswordChar = true;
+            // 
             // DekryptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 311);
+            this.Controls.Add(this.PassphraseTextBox);
             this.Controls.Add(this.DecryptToFileButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DecryptedContentsTextBox);
             this.Controls.Add(this.DecryptButton);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.SelectFileButton);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(550, 350);
@@ -121,9 +122,9 @@
 
         private Label label1;
         private Button SelectFileButton;
-        private MaskedTextBox maskedTextBox1;
         private Button DecryptButton;
-        private TextBox textBox1;
+        private TextBox DecryptedContentsTextBox;
         private Button DecryptToFileButton;
+        private TextBox PassphraseTextBox;
     }
 }
