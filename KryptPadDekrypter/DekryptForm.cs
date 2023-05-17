@@ -100,6 +100,16 @@ namespace KryptPadDekrypter
                                             {
                                                 item.Name = Encryption.DecryptFromString(item.Name, passphrase);
                                                 item.Notes = Encryption.DecryptFromString(item.Notes, passphrase);
+                                                // Loop through all field values and decrypt them
+                                                if (item.Fields != null)
+                                                {
+                                                    foreach (var field in item.Fields)
+                                                    {
+                                                        field.Name = Encryption.DecryptFromString(field.Name, passphrase);
+                                                        field.Value = Encryption.DecryptFromString(field.Value, passphrase);
+
+                                                    }
+                                                }
                                             }
                                         }
                                     }
