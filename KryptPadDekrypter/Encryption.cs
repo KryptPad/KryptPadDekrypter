@@ -250,7 +250,7 @@ namespace KryptPadDekrypter
         /// <param name="cypherString"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static string? DecryptFromString(string cypherString, string password)
+        public static string? DecryptFromString(string? cypherString, string password)
         {
             if (!string.IsNullOrWhiteSpace(cypherString))
             {

@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace KryptPadWebApp.Models.Entities
 {
@@ -18,11 +14,11 @@ namespace KryptPadWebApp.Models.Entities
         /// Gets or sets the category name
         /// </summary>
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// List of items under the category
         /// </summary>
-        public List<Item> Items { get; set; }
+        public List<Item>? Items { get; set; }
     }
 }

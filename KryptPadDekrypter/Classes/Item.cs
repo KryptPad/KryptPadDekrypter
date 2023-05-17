@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KryptPadWebApp.Models.Entities
 {
@@ -21,12 +19,12 @@ namespace KryptPadWebApp.Models.Entities
         /// Gets or sets the name of the item
         /// </summary>
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the notes for the item
         /// </summary>
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         /// <summary>
         /// Gets or sets the item's icon
@@ -36,7 +34,7 @@ namespace KryptPadWebApp.Models.Entities
         /// <summary>
         /// List of fields under the item
         /// </summary>
-        public List<Field> Fields { get; set; }
+        public List<Field>? Fields { get; set; }
 
 
     }
