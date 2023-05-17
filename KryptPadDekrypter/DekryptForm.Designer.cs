@@ -34,6 +34,7 @@
             this.DecryptedContentsTextBox = new System.Windows.Forms.TextBox();
             this.DecryptToFileButton = new System.Windows.Forms.Button();
             this.PassphraseTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +60,7 @@
             // 
             this.DecryptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DecryptButton.Enabled = false;
-            this.DecryptButton.Location = new System.Drawing.Point(313, 28);
+            this.DecryptButton.Location = new System.Drawing.Point(413, 28);
             this.DecryptButton.Name = "DecryptButton";
             this.DecryptButton.Size = new System.Drawing.Size(75, 23);
             this.DecryptButton.TabIndex = 3;
@@ -75,14 +76,16 @@
             this.DecryptedContentsTextBox.Location = new System.Drawing.Point(12, 57);
             this.DecryptedContentsTextBox.Multiline = true;
             this.DecryptedContentsTextBox.Name = "DecryptedContentsTextBox";
-            this.DecryptedContentsTextBox.Size = new System.Drawing.Size(510, 242);
+            this.DecryptedContentsTextBox.ReadOnly = true;
+            this.DecryptedContentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DecryptedContentsTextBox.Size = new System.Drawing.Size(610, 342);
             this.DecryptedContentsTextBox.TabIndex = 4;
             // 
             // DecryptToFileButton
             // 
             this.DecryptToFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DecryptToFileButton.Enabled = false;
-            this.DecryptToFileButton.Location = new System.Drawing.Point(394, 28);
+            this.DecryptToFileButton.Location = new System.Drawing.Point(494, 28);
             this.DecryptToFileButton.Name = "DecryptToFileButton";
             this.DecryptToFileButton.Size = new System.Drawing.Size(128, 23);
             this.DecryptToFileButton.TabIndex = 5;
@@ -93,24 +96,35 @@
             // 
             this.PassphraseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PassphraseTextBox.Location = new System.Drawing.Point(109, 28);
+            this.PassphraseTextBox.Enabled = false;
+            this.PassphraseTextBox.Location = new System.Drawing.Point(218, 28);
             this.PassphraseTextBox.Name = "PassphraseTextBox";
-            this.PassphraseTextBox.Size = new System.Drawing.Size(198, 23);
+            this.PassphraseTextBox.Size = new System.Drawing.Size(189, 23);
             this.PassphraseTextBox.TabIndex = 6;
             this.PassphraseTextBox.UseSystemPasswordChar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(144, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Passphrase:";
             // 
             // DekryptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 311);
+            this.ClientSize = new System.Drawing.Size(634, 411);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PassphraseTextBox);
             this.Controls.Add(this.DecryptToFileButton);
             this.Controls.Add(this.DecryptedContentsTextBox);
             this.Controls.Add(this.DecryptButton);
             this.Controls.Add(this.SelectFileButton);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(550, 350);
+            this.MinimumSize = new System.Drawing.Size(650, 200);
             this.Name = "DekryptForm";
             this.Text = "Krypt Pad Dekrypter";
             this.ResumeLayout(false);
@@ -126,5 +140,6 @@
         private TextBox DecryptedContentsTextBox;
         private Button DecryptToFileButton;
         private TextBox PassphraseTextBox;
+        private Label label2;
     }
 }

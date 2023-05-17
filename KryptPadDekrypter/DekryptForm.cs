@@ -24,6 +24,7 @@ namespace KryptPadDekrypter
                     if (_selectedFileStream != null)
                     {
                         // Enable the decryption buttons
+                        PassphraseTextBox.Enabled = true;
                         DecryptButton.Enabled = true;
                         DecryptToFileButton.Enabled = true;
                     }
@@ -64,28 +65,31 @@ namespace KryptPadDekrypter
             string? decryptedText = null;
             string passphrase = PassphraseTextBox.Text;
 
-
-
-
-
-
             // Decrypt the file and output its content into the textbox
             if (_selectedFileStream != null)
             {
                 try
                 {
+                    // Reset stream position
+                    _selectedFileStream.Position = 0;
 
                     // Read all the contents of the file
-                    using (var sr = new StreamReader(_selectedFileStream))
+                    using (var sr = new StreamReader(_selectedFileStream, leaveOpen: true))
                     {
                         var profileJson = sr.ReadToEnd();
-
                         if (profileJson != null)
                         {
                             // Next deserialize the profile into a Profile object
                             var profile = JsonConvert.DeserializeObject<Profile>(profileJson);
                             if (profile != null && profile.Categories != null)
                             {
+                                // Check if the supplied passphrase matches the hash in the document
+                                if (!VerifyPassphrase(profile, passphrase))
+                                {
+                                    throw new Exception("The passphrase you entered is not correct. Please try again.");
+                                }
+
+
                                 // Loop through each category and decrypt it
                                 foreach (var category in profile.Categories)
                                 {
@@ -118,25 +122,24 @@ namespace KryptPadDekrypter
                             }
 
                             // Serialize the decrypted output
-                            decryptedText = JsonConvert.SerializeObject(profile);
+                            decryptedText = JsonConvert.SerializeObject(profile, Formatting.Indented);
 
                         }
-
-
 
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while decrypting the file. Make sure your passphrase is correct.",
+                    MessageBox.Show($"An error occurred while decrypting the file. {ex.Message}",
                         "Error Decrypting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
 
             }
 
             return decryptedText;
         }
+
+        
     }
 }
